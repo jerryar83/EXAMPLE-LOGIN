@@ -72,7 +72,7 @@ class ProductsController extends Controller
         
         $update= Product::where('ProductID',$id)
         ->update(['ProductName' => $productName,
-        'CategoryID' =>$categoryID->CategoryID,
+        'CategoryID' =>$categoryID->categoryID,
         'UnitPrice'=>$unitPrice,
         'UnitsInstock'=>$unitsIntStock
         ]);

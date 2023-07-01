@@ -6,7 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\PDFController;
-
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -48,7 +48,8 @@ Route::group(['namespace'=>'App\Http\Controllers'],function() {
     Route::get('/editEmployees/{id}',[EmployeesController::class,'edit']); 
     Route::put('/updateEmployees',[EmployeesController::class,'update']);
     Route::get('/deleteEmployees/{id}',[EmployeesController::class,'deleteEmployee']);
-    Route::get('/enviar_email/{id}',[EmployeesController::class,'emailEmployee']);
+    //Route::get('/enviar_email/{id}',[EmployeesController::class,'emailEmployee']);
+    Route::get('/enviar_email/{id}',[App\Http\Controllers\PruebaMailController::class,'pruebaMailAdjunto']);
 
     //products
 
@@ -67,3 +68,8 @@ Route::get('/generate_presentacionPDF/{id}',[PDFController::class,'generatePrese
 
 Route::get('/sendMail',[App\Http\Controllers\PruebaMailController::class,'index']);
 Route::get('/sendMailPDFadjunto',[App\Http\Controllers\PruebaMailController::class,'pruebaMailAdjunto']);
+
+//conctact
+Route::get('/conctact',[ContactController::class,'index']);
+Route::put('/insertMenssage',[ContactController::class,'insertMenssage']);
+Route::get('/sendMail',[App\Http\Controllers\PruebaMailController::class,'index']);
